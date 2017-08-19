@@ -1,4 +1,6 @@
-package mario2D;
+package marioWorld;
+
+import marioWorld.display.MarioFrame;
 
 /**
  * Created by andres on 18/08/17.
@@ -6,7 +8,7 @@ package mario2D;
 public class Launcher {
 
     public static void main(String[] args) {
-
+        new MarioFrame();
     }
 
 }
