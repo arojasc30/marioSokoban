@@ -24,7 +24,7 @@ public class StartMenu extends JPanel {
     private static final int BUTTON_WIDTH = 100;
     private static final int BUTTON_HEIGHT = 75;
 
-    //private ActionListener actionListener;
+    private ActionListener actionListener;
 
 
     public StartMenu(MarioFrame frame){
@@ -41,7 +41,7 @@ public class StartMenu extends JPanel {
         quit = new JButton("QUIT");
         quit.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
 
-        //actionListener = new ClickListener(frame, this);
+        actionListener = new ClickListener(frame, this);
 
         this.setLayout(new BorderLayout());
         this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
