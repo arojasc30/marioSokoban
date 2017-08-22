@@ -29,7 +29,7 @@ public class MarioFrame extends JFrame {
     private void createFrame(){
         startMenu = new StartMenu(this);
         this.setLayout(new BorderLayout());
-        this.setTitle("El Laberinto de Mario");
+        this.setTitle("Super Mario World 2D");
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);

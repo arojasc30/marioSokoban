@@ -32,9 +32,8 @@ public class StartMenu extends JPanel {
     }
 
     private void createMenuDisplay(MarioFrame frame){
-        buttonPanel = new JPanel();
-        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
-        buttonPanel.setBorder(BorderFactory.createEmptyBorder());
+        buttonPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
         drawPanel = new Drawable();
 
         play = new JButton("PLAY");
@@ -49,8 +48,14 @@ public class StartMenu extends JPanel {
         drawPanel.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
 
         buttonPanel.setBackground(Color.red);
-        buttonPanel.add(play);
-        buttonPanel.add(quit);
+
+        gbc.insets = new Insets(20, 5, 20, 5);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        buttonPanel.add(play, gbc);
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        buttonPanel.add(quit, gbc);
         //play.addActionListener(actionListener);
         //quit.addActionListener(actionListener);
 

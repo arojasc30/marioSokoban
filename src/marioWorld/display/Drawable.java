@@ -13,5 +13,7 @@ public class Drawable extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         g.drawImage(ImageLoader.loadImage("/images/sky.png"), 0, 0, null );
+        g.drawImage(ImageLoader.loadImage("/images/mariologo.png"), 120, 200, null );
+        g.drawImage(ImageLoader.loadImage("/images/2Dlogox.png"), 280, 325, null );
     }
 }
