@@ -1,8 +1,9 @@
 package marioWorld.display;
 
+import marioWorld.GamePanel;
 import marioWorld.GameState;
 import marioWorld.MarioWorld;
-import marioWorld.StartMenu;
+import marioWorld.GameMenu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,8 +13,8 @@ import java.awt.*;
  */
 public class MarioFrame extends JFrame {
 
-    private MarioWorld world;
-    private JPanel startMenu;
+    private JPanel gamePanel;
+    private JPanel gameMenu;
 
     private static final int FRAME_WIDTH = 750;
     private static final int FRAME_HEIGHT = 640;
@@ -27,7 +28,8 @@ public class MarioFrame extends JFrame {
     }
 
     private void createFrame(){
-        startMenu = new StartMenu(this);
+        gameMenu = new GameMenu(this);
+        gamePanel = new GamePanel(this);
         this.setLayout(new BorderLayout());
         this.setTitle("Super Mario World 2D");
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
@@ -52,24 +54,26 @@ public class MarioFrame extends JFrame {
     }
 
     private void setMenuDisplay(){
-        if (world != null){
-            this.remove(world);
-        }
-        this.add(startMenu);
+        this.remove(gamePanel);
+        this.add(gameMenu);
+        this.validate();
         this.repaint();
     }
 
     private void setGameDisplay(){
+        this.remove(gameMenu);
         this.setFocusable(false);
-
-        world = new MarioWorld();
-        world.setPreferredSize(new Dimension(WORLD_DIMENSION, WORLD_DIMENSION));
-
-        this.add(world, BorderLayout.CENTER);
-
-        world.grabFocus();
-        this.revalidate();
+        this.add(gamePanel);
+        this.validate();
         this.repaint();
+    }
+
+    public GameState getGameState() {
+        return state;
+    }
+
+    public void quitgame(){
+        this.dispose();
     }
 
 }

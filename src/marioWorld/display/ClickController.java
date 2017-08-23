@@ -1,6 +1,7 @@
 package marioWorld.display;
 
-import marioWorld.StartMenu;
+import marioWorld.GameState;
+import marioWorld.GameMenu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,11 +11,21 @@ import java.awt.event.ActionListener;
  */
 public class ClickController implements ActionListener {
 
-    MarioFrame frame;
-    StartMenu menu;
+    private MarioFrame frame;
+    private GameMenu menu;
+
+    public ClickController(MarioFrame frame, GameMenu menu){
+        this.frame = frame;
+        this.menu = menu;
+    }
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-
+        if (actionEvent.getSource() == menu.play){
+            frame.gameStateController(GameState.game);
+        }
+        if (actionEvent.getSource() == menu.quit){
+            frame.quitgame();
+        }
     }
 }

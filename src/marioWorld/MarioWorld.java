@@ -1,16 +1,12 @@
 package marioWorld;
 
-import marioWorld.display.GoombaSpot;
-import marioWorld.display.MarioFrame;
-import marioWorld.display.Sprite;
+import marioWorld.display.*;
 import marioWorld.objects.Grass;
 import marioWorld.objects.Mario;
 import marioWorld.objects.Rocks;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -20,7 +16,6 @@ public class MarioWorld extends JPanel {
 
     private static final int rows = 16;
     private static final int columns = 16;
-    private ImageIcon sky;
 
     private Sprite[][] sprites;
     private ArrayList<GoombaSpot> goombas;
@@ -32,18 +27,16 @@ public class MarioWorld extends JPanel {
 
     public MarioWorld(){
         sprites = new Sprite[rows][columns];
-        sky = new ImageIcon("/images/sky.png");
 
         mario = new Mario();
         worldController = new WorldController();
 
-
-
+//        setWorldDisplay();
+//        setFocusable(true);
     }
 
     private void setWorldDisplay(){
         goombas = new ArrayList<>();
-
         for (int x = 0; x < rows; x++){
             for (int y =0 ; y < columns; y++){
                 sprites[x][y] = new Sprite();
@@ -67,12 +60,16 @@ public class MarioWorld extends JPanel {
 
     @Override
     public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.drawImage(sky.getImage(), 0,0, MarioFrame.WORLD_DIMENSION, MarioFrame.WORLD_DIMENSION, this);
+        g.drawImage(ImageLoader.loadImage("/images/sky.png"), 0, 0, this);
 //        for (int x = 0; x < rows; x++){
 //            for (int y = 0; y< columns; y++){
 //                g.drawImage(sprites[x][y].getImage(), x * 40, y * 40, this);
 //            }
 //        }
     }
+
+//    public void restart(){
+//        this.setWorldDisplay();
+//    }
+
 }
