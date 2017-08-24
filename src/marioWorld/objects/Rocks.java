@@ -12,6 +12,7 @@ import java.awt.*;
 public class Rocks extends GameObject {
 
     public Rocks(){
+        this.isSolid = true;
         image = ImageLoader.loadImage("/sprites/rocks.png");
     }
 

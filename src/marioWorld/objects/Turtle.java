@@ -17,17 +17,20 @@ public class Turtle extends GameObject {
     @Override
     public void move(Moves move) {
         Sprite currentSprite = world.getSprite(this.x, this.y);
-        this.setMove(move);
+        this.setNextSprite(move);
         this.setPreviousSprite(currentSprite);
-        if (this.nextSprite.getObject() != null){
-            this.nextSprite.getObject().move(move);
-            currentSprite.clearObject();
-            this.nextSprite.setObject(this);
+        if (this.nextSprite.hasObject){
+            if (!(this.nextSprite.getObject().isSolid)){
+                this.nextSprite.getObject().move(move);
+                this.nextSprite.setObject(this);
+                this.setPreviousSprite(currentSprite);
+                currentSprite.clearObject();
+            }
         }else {
             this.nextSprite.setObject(this);
+            this.setPreviousSprite(currentSprite);
             currentSprite.clearObject();
         }
-        world.repaint();
     }
 
 }

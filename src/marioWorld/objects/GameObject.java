@@ -17,6 +17,7 @@ public abstract class GameObject {
     protected Image image;
     protected Sprite nextSprite = null;
     protected Sprite previousSprite = null;
+    protected boolean isSolid = false;
 
     public GameObject(MarioWorld world, int x, int y) {
         this.world = world;
@@ -48,23 +49,19 @@ public abstract class GameObject {
 
     public abstract void move(Moves move);
 
-    protected void setMove(Moves move){
+    protected void setNextSprite(Moves move){
         switch (move){
             case up:
-                this.x -= 1;
-                this.setNextSprite(world.getSprite(this.x, this.y));
+                this.setNextSprite(world.getSprite(this.x - 1, this.y));
                 break;
             case down:
-                this.x += 1;
-                this.setNextSprite(world.getSprite(this.x, this.y));
+                this.setNextSprite(world.getSprite(this.x + 1, this.y));
                 break;
             case left:
-                this.y -= 1;
-                this.setNextSprite(world.getSprite(this.x, this.y));
+                this.setNextSprite(world.getSprite(this.x, this.y - 1));
                 break;
             case right:
-                this.y += 1;
-                this.setNextSprite(world.getSprite(this.x, this.y));
+                this.setNextSprite(world.getSprite(this.x, this.y + 1));
                 break;
         }
     }
@@ -83,5 +80,9 @@ public abstract class GameObject {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public boolean isSolid() {
+        return isSolid;
     }
 }

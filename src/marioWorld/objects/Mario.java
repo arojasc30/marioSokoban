@@ -35,17 +35,20 @@ public class Mario extends GameObject {
     public void move(Moves move){
         Sprite currentSprite = this.world.getSprite(this.x, this.y);
         this.setMarioView(move);
-        this.setMove(move);
-        this.setPreviousSprite(currentSprite);
-        if (this.nextSprite.getObject() != null){
-            this.nextSprite.getObject().move(move);
-            currentSprite.clearObject();
-            this.nextSprite.setObject(this);
+        this.setNextSprite(move);
+        if (this.nextSprite.hasObject){
+            if (!(this.nextSprite.getObject().isSolid)){
+                this.nextSprite.getObject().move(move);
+                this.nextSprite.setObject(this);
+                this.setPreviousSprite(currentSprite);
+                currentSprite.clearObject();
+            }
         }else {
             this.nextSprite.setObject(this);
+            this.setPreviousSprite(currentSprite);
             currentSprite.clearObject();
         }
-        world.repaint();
+        //world.repaint();
     }
 
 }

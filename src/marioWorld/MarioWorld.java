@@ -35,24 +35,32 @@ public class MarioWorld extends JPanel {
     private void setWorldDisplay(){
         for (int x = 0; x < rows; x++){
             for (int y =0 ; y < columns; y++){
-                sprites[x][y] = new Sprite();
+                sprites[x][y] = new Sprite(x, y);
 
                 if (worldController.getWorld()[x][y] == 1){
                     sprites[x][y].inUse = true;
                     sprites[x][y].setObject(new Rocks());
+                    sprites[x][y].hasObject = true;
                 }
                 if (worldController.getWorld()[x][y] == 2){
-                    sprites[x][y].setObject(new Grass());
+                    sprites[x][y].inUse = true;
+                    //sprites[x][y].setObject(new Grass());
                 }
                 if (worldController.getWorld()[x][y] == 3){
+                    sprites[x][y].inUse = true;
                     sprites[x][y].setObject(new Goomba());
+                    sprites[x][y].hasObject = true;
                 }
                 if (worldController.getWorld()[x][y] == 4){
+                    sprites[x][y].inUse = true;
                     sprites[x][y].setObject(new Turtle(this, x, y));
+                    sprites[x][y].hasObject = true;
                 }
                 if (worldController.getWorld()[x][y] == 8){
+                    sprites[x][y].inUse = true;
                     mario = new Mario(this, x, y);
                     sprites[x][y].setObject(mario);
+                    sprites[x][y].hasObject = true;
                 }
             }
         }
@@ -66,6 +74,10 @@ public class MarioWorld extends JPanel {
                 if (sprites[y][x].getObject() != null){
                     g.drawImage(this.sprites[y][x].getTexture(), x * 40, y * 40, null);
                     g.drawImage(this.sprites[y][x].getObject().getImage(), x * 40, y * 40, null);
+                }else {
+                    if (sprites[y][x].inUse){
+                        g.drawImage(this.sprites[y][x].getTexture(), x * 40, y * 40, null);
+                    }
                 }
             }
         }
