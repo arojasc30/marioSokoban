@@ -2,7 +2,7 @@ package marioWorld;
 
 import marioWorld.controllers.KeyController;
 import marioWorld.display.MarioFrame;
-import marioWorld.display.WorldClickController;
+import marioWorld.controllers.WorldClickController;
 
 import javax.swing.*;
 import java.awt.*;

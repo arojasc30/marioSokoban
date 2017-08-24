@@ -1,10 +1,7 @@
 package marioWorld;
 
 import marioWorld.display.*;
-import marioWorld.objects.Goomba;
-import marioWorld.objects.Grass;
-import marioWorld.objects.Mario;
-import marioWorld.objects.Rocks;
+import marioWorld.objects.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -49,6 +46,9 @@ public class MarioWorld extends JPanel {
                 }
                 if (worldController.getWorld()[x][y] == 3){
                     sprites[x][y].setObject(new Goomba());
+                }
+                if (worldController.getWorld()[x][y] == 4){
+                    sprites[x][y].setObject(new Turtle());
                 }
                 if (worldController.getWorld()[x][y] == 8){
                     sprites[x][y].setObject(mario);
