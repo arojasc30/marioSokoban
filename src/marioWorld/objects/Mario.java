@@ -1,18 +1,18 @@
 package marioWorld.objects;
 
+import marioWorld.MarioWorld;
 import marioWorld.controllers.Moves;
 import marioWorld.display.ImageLoader;
+import marioWorld.display.Sprite;
 
 /**
  * Created by andres on 20/08/17.
  */
 public class Mario extends GameObject {
 
-
-    public Mario(){
+    public Mario(MarioWorld world, int x, int y){
+        super(world, x, y);
         setMarioView(Moves.down);
-        //image = ImageLoader.loadImage("/sprites/marioStopDown.png");
-
     }
 
     public void setMarioView(Moves move){
@@ -33,7 +33,19 @@ public class Mario extends GameObject {
     }
 
     public void move(Moves move){
-        setMarioView(move);
+        Sprite currentSprite = this.world.getSprite(this.x, this.y);
+        this.setMarioView(move);
+        this.setMove(move);
+        this.setPreviousSprite(currentSprite);
+        if (this.nextSprite.getObject() != null){
+            this.nextSprite.getObject().move(move);
+            currentSprite.clearObject();
+            this.nextSprite.setObject(this);
+        }else {
+            this.nextSprite.setObject(this);
+            currentSprite.clearObject();
+        }
+        world.repaint();
     }
 
 }

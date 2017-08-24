@@ -1,5 +1,6 @@
 package marioWorld.objects;
 
+import marioWorld.controllers.Moves;
 import marioWorld.display.ImageLoader;
 
 import javax.swing.*;
@@ -12,6 +13,11 @@ public class Rocks extends GameObject {
 
     public Rocks(){
         image = ImageLoader.loadImage("/sprites/rocks.png");
+    }
+
+    @Override
+    public void move(Moves move) {
+
     }
 
 }

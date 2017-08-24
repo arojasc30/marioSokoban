@@ -1,5 +1,6 @@
 package marioWorld.objects;
 
+import marioWorld.controllers.Moves;
 import marioWorld.display.ImageLoader;
 
 import java.awt.*;
@@ -11,6 +12,11 @@ public class Mushroom extends GameObject {
 
     public Mushroom(){
         image = ImageLoader.loadImage("/sprites/mushroom.png");
+    }
+
+    @Override
+    public void move(Moves move) {
+
     }
 
 }

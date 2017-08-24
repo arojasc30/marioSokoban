@@ -19,14 +19,13 @@ public class MarioWorld extends JPanel {
     private Sprite[][] sprites;
 
     private Mario mario;
-    private WorldController worldController;
+    protected WorldController worldController;
 
     private boolean gameFinished = false;
 
     public MarioWorld(){
         sprites = new Sprite[rows][columns];
 
-        mario = new Mario();
         worldController = new WorldController();
 
         setWorldDisplay();
@@ -39,6 +38,7 @@ public class MarioWorld extends JPanel {
                 sprites[x][y] = new Sprite();
 
                 if (worldController.getWorld()[x][y] == 1){
+                    sprites[x][y].inUse = true;
                     sprites[x][y].setObject(new Rocks());
                 }
                 if (worldController.getWorld()[x][y] == 2){
@@ -48,9 +48,10 @@ public class MarioWorld extends JPanel {
                     sprites[x][y].setObject(new Goomba());
                 }
                 if (worldController.getWorld()[x][y] == 4){
-                    sprites[x][y].setObject(new Turtle());
+                    sprites[x][y].setObject(new Turtle(this, x, y));
                 }
                 if (worldController.getWorld()[x][y] == 8){
+                    mario = new Mario(this, x, y);
                     sprites[x][y].setObject(mario);
                 }
             }
@@ -74,6 +75,14 @@ public class MarioWorld extends JPanel {
 //        this.setWorldDisplay();
 //    }
 
+
+    public Sprite getSprite(int x, int y) {
+        return sprites[x][y];
+    }
+
+    public WorldController getWorldController() {
+        return worldController;
+    }
 
     public Mario getMario() {
         return mario;

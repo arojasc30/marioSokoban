@@ -1,5 +1,7 @@
 package marioWorld.objects;
 
+import marioWorld.MarioWorld;
+import marioWorld.controllers.Moves;
 import marioWorld.display.ImageLoader;
 
 import javax.swing.*;
@@ -14,4 +16,8 @@ public class Goomba extends GameObject {
         image = ImageLoader.loadImage("/sprites/goomba.png");
     }
 
+    @Override
+    public void move(Moves move) {
+
+    }
 }

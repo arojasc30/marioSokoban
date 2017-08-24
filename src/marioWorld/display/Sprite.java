@@ -13,6 +13,7 @@ public class Sprite {
 
     protected GameObject object;
     protected Image texture;
+    public boolean inUse = false;
 
     public Sprite(){
         this.texture = ImageLoader.loadImage("/sprites/grass.png");
@@ -24,6 +25,10 @@ public class Sprite {
 
     public GameObject getObject(){
         return this.object;
+    }
+
+    public void clearObject(){
+        object = null;
     }
 
     public Image getTexture() {
