@@ -1,7 +1,8 @@
-package marioWorld.display;
+package marioWorld.controllers;
 
 import marioWorld.GameState;
 import marioWorld.GameMenu;
+import marioWorld.display.MarioFrame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

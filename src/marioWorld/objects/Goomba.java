@@ -1,5 +1,7 @@
 package marioWorld.objects;
 
+import marioWorld.display.ImageLoader;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,13 +11,7 @@ import java.awt.*;
 public class Goomba extends GameObject {
 
     public Goomba(){
-        imageIcon = new ImageIcon("/sprites/goomba.png");
-    }
-
-    @Override
-    public Image getImage() {
-        image = imageIcon.getImage();
-        return image;
+        image = ImageLoader.loadImage("/sprites/goomba.png");
     }
 
 }

@@ -1,6 +1,6 @@
 package marioWorld;
 
-import marioWorld.display.ClickController;
+import marioWorld.controllers.ClickController;
 import marioWorld.display.GameMenuDraw;
 import marioWorld.display.MarioFrame;
 

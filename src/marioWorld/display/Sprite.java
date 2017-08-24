@@ -12,37 +12,21 @@ import java.awt.*;
 public class Sprite {
 
     protected GameObject object;
-    protected ImageIcon imageIcon;
-    protected Image image;
+    protected Image texture;
 
     public Sprite(){
-
+        this.texture = ImageLoader.loadImage("/sprites/grass.png");
     }
 
     public void setObject(GameObject object){
         this.object = object;
-        Sprite lastSprite = object.getSprite();
-
-        if (lastSprite != null){
-            lastSprite.clearObject();
-        }
-        object.setSprite(this);
     }
 
     public GameObject getObject(){
         return this.object;
     }
 
-    public void clearObject(){
-        object = null;
+    public Image getTexture() {
+        return texture;
     }
-
-    public Image getImage(){
-        this.imageIcon = new ImageIcon("/sprites/grass.png");
-        this.image = imageIcon.getImage();
-        return this.image;
-    }
-
-
-
 }

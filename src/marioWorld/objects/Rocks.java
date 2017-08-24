@@ -1,5 +1,7 @@
 package marioWorld.objects;
 
+import marioWorld.display.ImageLoader;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,12 +11,7 @@ import java.awt.*;
 public class Rocks extends GameObject {
 
     public Rocks(){
-        imageIcon = new ImageIcon("/sprites/rocks.png");
+        image = ImageLoader.loadImage("/sprites/rocks.png");
     }
 
-    @Override
-    public Image getImage() {
-        image = imageIcon.getImage();
-        return image;
-    }
 }

@@ -64,6 +64,7 @@ public class MarioFrame extends JFrame {
         this.remove(gameMenu);
         this.setFocusable(false);
         this.add(gamePanel);
+        gamePanel.grabFocus();
         this.validate();
         this.repaint();
     }

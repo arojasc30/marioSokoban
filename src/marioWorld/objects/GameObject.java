@@ -1,8 +1,5 @@
 package marioWorld.objects;
 
-import marioWorld.display.Sprite;
-
-import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -10,22 +7,11 @@ import java.awt.*;
  */
 public abstract class GameObject {
 
-    protected Sprite sprite;
-
-    protected ImageIcon imageIcon;
     protected Image image;
 
     public GameObject(){}
 
-    public void setSprite(Sprite sprite){
-        this.sprite = sprite;
+    public Image getImage() {
+        return image;
     }
-
-    public Sprite getSprite(){
-        return sprite;
-    }
-
-    public abstract Image getImage();
-    //public abstract void move();
-
 }

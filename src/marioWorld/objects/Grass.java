@@ -1,5 +1,7 @@
 package marioWorld.objects;
 
+import marioWorld.display.ImageLoader;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,13 +11,7 @@ import java.awt.*;
 public class Grass extends GameObject {
 
     public Grass(){
-        imageIcon = new ImageIcon("/sprites/grass.png");
-    }
-
-    @Override
-    public Image getImage() {
-        image = imageIcon.getImage();
-        return image;
+        image = ImageLoader.loadImage("/sprites/grass.png");
     }
 
 }
