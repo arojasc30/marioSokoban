@@ -26,9 +26,9 @@ public class WorldClickController implements ActionListener {
         if (actionEvent.getSource() == panel.menu){
             frame.gameStateController(GameState.menu);
         }
-//        if (actionEvent.getSource() == world.restart){
-//            frame.gameStateController(GameState.menu);
-//        }
+        if (actionEvent.getSource() == panel.restart){
+            panel.getDrawPanel().restart();
+        }
     }
 
 }

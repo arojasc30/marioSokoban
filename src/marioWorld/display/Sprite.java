@@ -26,6 +26,7 @@ public class Sprite {
 
     public void setObject(GameObject object){
         this.object = object;
+        this.hasObject = true;
         this.object.setX(spriteX);
         this.object.setY(spriteY);
     }

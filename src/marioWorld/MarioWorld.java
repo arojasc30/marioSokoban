@@ -64,6 +64,8 @@ public class MarioWorld extends JPanel {
                 }
             }
         }
+        this.repaint();
+        this.grabFocus();
     }
 
     @Override
@@ -83,11 +85,6 @@ public class MarioWorld extends JPanel {
         }
     }
 
-//    public void restart(){
-//        this.setWorldDisplay();
-//    }
-
-
     public Sprite getSprite(int x, int y) {
         return sprites[x][y];
     }
@@ -98,5 +95,9 @@ public class MarioWorld extends JPanel {
 
     public Mario getMario() {
         return mario;
+    }
+
+    public void restart(){
+        setWorldDisplay();
     }
 }

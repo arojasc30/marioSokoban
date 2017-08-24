@@ -18,10 +18,8 @@ public class Turtle extends GameObject {
     public void move(Moves move) {
         Sprite currentSprite = world.getSprite(this.x, this.y);
         this.setNextSprite(move);
-        this.setPreviousSprite(currentSprite);
         if (this.nextSprite.hasObject){
             if (!(this.nextSprite.getObject().isSolid)){
-                this.nextSprite.getObject().move(move);
                 this.nextSprite.setObject(this);
                 this.setPreviousSprite(currentSprite);
                 currentSprite.clearObject();

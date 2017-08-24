@@ -4,8 +4,8 @@ package marioWorld;
  * Created by andres on 21/08/17.
  */
 public class WorldController {
-
-    private int worldLevel = 3;
+    
+    private int worldLevel = 2;
     private boolean lastWorld = false;
 
     private int[][] world;

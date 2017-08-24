@@ -15,7 +15,7 @@ import java.awt.event.KeyListener;
 public class GamePanel extends JPanel {
 
     private JPanel buttonPanel;
-    private static MarioWorld drawPanel;
+    private MarioWorld drawPanel;
 
     private static final int PANEL_WIDTH = 750;
     private static final int PANEL_HEIGHT = 640;
@@ -71,4 +71,7 @@ public class GamePanel extends JPanel {
         this.addKeyListener(keyListener);
     }
 
+    public MarioWorld getDrawPanel() {
+        return drawPanel;
+    }
 }
