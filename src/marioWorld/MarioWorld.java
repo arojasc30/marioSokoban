@@ -5,27 +5,27 @@ import marioWorld.objects.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyListener;
-import java.util.ArrayList;
 
 /**
  * Created by andres on 20/08/17.
  */
+
+/**
+ * Game world constructor class
+ */
 public class MarioWorld extends JPanel {
 
-    private static final int rows = 16;
-    private static final int columns = 16;
+    private static final int rows = 16; // World matrix dimensions
+    private static final int columns = 16; //
 
-    private Sprite[][] sprites;
+    private Sprite[][] sprites; // World sprites array
 
-    private Mario mario;
-    protected WorldController worldController;
+    private Mario mario; // Main player character
+    protected WorldController worldController; // World controller
 
-    public int mushroomsCollected;
+    public int mushroomsCollected; // Counter for level mushrooms
 
-    private boolean gameFinished = false;
-
-    public MarioWorld(){
+    public MarioWorld(){ // Constructor
         sprites = new Sprite[rows][columns];
 
         worldController = new WorldController(this);
@@ -34,7 +34,7 @@ public class MarioWorld extends JPanel {
         setFocusable(true);
     }
 
-    protected void setWorldDisplay(){
+    protected void setWorldDisplay(){ // World constructor method, sets the sprites array with game objects
         mushroomsCollected = 0;
         for (int x = 0; x < rows; x++){
             for (int y =0 ; y < columns; y++){
@@ -47,7 +47,6 @@ public class MarioWorld extends JPanel {
                 }
                 if (worldController.getWorld()[x][y] == 2){
                     sprites[x][y].inUse = true;
-                    //sprites[x][y].setObject(new Grass());
                 }
                 if (worldController.getWorld()[x][y] == 3){
                     sprites[x][y].inUse = true;
@@ -71,7 +70,7 @@ public class MarioWorld extends JPanel {
     }
 
     @Override
-    public void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g) { // World rendering method
         g.drawImage(ImageLoader.loadImage("/images/sky.png"), 0, 0, null);
         for (int x = 0; x < rows; x++){
             for (int y = 0; y< columns; y++){
@@ -87,19 +86,19 @@ public class MarioWorld extends JPanel {
         }
     }
 
-    public Sprite getSprite(int x, int y) {
+    public Sprite getSprite(int x, int y) { // Getter
         return sprites[x][y];
     }
 
-    public WorldController getWorldController() {
+    public WorldController getWorldController() { // Getter
         return worldController;
     }
 
-    public Mario getMario() {
+    public Mario getMario() { // Getter
         return mario;
     }
 
-    public void restart(){
+    public void restart(){ // Level reset method
         setWorldDisplay();
 
     }

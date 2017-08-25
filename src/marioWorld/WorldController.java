@@ -3,21 +3,25 @@ package marioWorld;
 /**
  * Created by andres on 21/08/17.
  */
+
+/**
+ * Level Manager class
+ */
 public class WorldController {
     
-    private int worldLevel = 1;
-    public int mushrooms;
-    private boolean lastWorld = false;
-    private MarioWorld marioWorld;
+    private int worldLevel = 1; // Level counter
+    public int mushrooms; // Mushrooms variable for each level
+    private boolean lastWorld = false; // Last world boolean listener
+    private MarioWorld marioWorld; // World to export
 
-    private int[][] world;
+    private int[][] world; // World int matrix
 
-    public WorldController(MarioWorld marioWorld){
+    public WorldController(MarioWorld marioWorld){ // Constructor
         this.marioWorld = marioWorld;
         world = createWorld();
     }
 
-    private int[][] createWorld(){
+    private int[][] createWorld(){ // Sets the world matrix for each level by SWITCH
         switch (worldLevel){
             case 1:
                 mushrooms = 4;
@@ -149,7 +153,7 @@ public class WorldController {
         return world;
     }
 
-    public void nextWorld(){
+    public void nextWorld(){ // Sets next level - called after finish current level
         worldLevel++;
         if (worldLevel > 6){
             lastWorld = true;
@@ -159,23 +163,15 @@ public class WorldController {
         marioWorld.setWorldDisplay();
     }
 
-    public void setWorldLevel(int worldLevel) {
-        this.worldLevel = worldLevel;
-    }
-
-    public int getWorldLevel() {
-        return worldLevel;
-    }
-
-    public boolean isLastWorld() {
+    public boolean isLastWorld() { // Getter
         return lastWorld;
     }
 
-    public void setLastWorld(boolean lastWorld) {
+    public void setLastWorld(boolean lastWorld) { //Setter
         this.lastWorld = lastWorld;
     }
 
-    public int[][] getWorld() {
+    public int[][] getWorld() { // Getter
         return world;
     }
 }

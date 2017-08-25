@@ -10,24 +10,29 @@ import java.awt.*;
 /**
  * Created by andres on 19/08/17.
  */
+
+/**
+ * Frame manager class
+ *
+ * Initialize and set the game frame
+ */
 public class MarioFrame extends JFrame {
 
-    private JPanel gamePanel;
-    private JPanel gameMenu;
+    private JPanel gameMenu; // Starting layout, contains Play and Quit buttons, and game image
+    private JPanel gamePanel; // On game layout, contains Restart and Menu buttons, and game display
 
 
-    private static final int FRAME_WIDTH = 750;
-    private static final int FRAME_HEIGHT = 640;
-    public static final int WORLD_DIMENSION = 640;
+    private static final int FRAME_WIDTH = 750; // Frame Dimensions
+    private static final int FRAME_HEIGHT = 640; //
 
     private GameState state = GameState.menu;
 
-    public MarioFrame(){
+    public MarioFrame(){ //Frame Constructor
         createFrame();
         gameStateController(state);
     }
 
-    private void createFrame(){
+    private void createFrame(){ // Method that sets the frame features
         gameMenu = new GameMenu(this);
         gamePanel = new GamePanel(this);
         this.setLayout(new BorderLayout());
@@ -39,7 +44,7 @@ public class MarioFrame extends JFrame {
         this.setVisible(true);
     }
 
-    public void gameStateController(GameState state){
+    public void gameStateController(GameState state){ // Game state manager method {SWITCH}-(menu, game)
         switch (state){
             case menu:
                 setMenuDisplay();
@@ -53,14 +58,14 @@ public class MarioFrame extends JFrame {
         }
     }
 
-    private void setMenuDisplay(){
+    private void setMenuDisplay(){ // Sets and print the menu state display
         this.remove(gamePanel);
         this.add(gameMenu);
         this.validate();
         this.repaint();
     }
 
-    public void setGameDisplay(){
+    public void setGameDisplay(){ // Sets and print the game state display
         this.remove(gameMenu);
         this.setFocusable(false);
         this.add(gamePanel);
@@ -69,11 +74,7 @@ public class MarioFrame extends JFrame {
         this.repaint();
     }
 
-    public GameState getGameState() {
-        return state;
-    }
-
-    public void quitgame(){
+    public void quitgame(){ // Close the entire program
         this.dispose();
     }
 

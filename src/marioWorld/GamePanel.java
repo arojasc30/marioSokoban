@@ -14,27 +14,27 @@ import java.awt.event.KeyListener;
  */
 public class GamePanel extends JPanel {
 
-    private JPanel buttonPanel;
-    private MarioWorld drawPanel;
+    private JPanel buttonPanel; // Panel for buttons
+    private MarioWorld drawPanel; // Panel for
 
-    private static final int PANEL_WIDTH = 750;
-    private static final int PANEL_HEIGHT = 640;
+    private static final int PANEL_WIDTH = 750; // GamePanel dimensions
+    private static final int PANEL_HEIGHT = 640; //
 
-    public JButton restart;
-    public JButton menu;
+    public JButton restart; // Buttons
+    public JButton menu; //
 
-    private static final int BUTTON_WIDTH = 100;
-    private static final int BUTTON_HEIGHT = 75;
+    private static final int BUTTON_WIDTH = 100; // Button dimensions
+    private static final int BUTTON_HEIGHT = 75; //
 
-    private ActionListener actionListener;
-    private KeyListener keyListener;
+    private ActionListener actionListener; // Click listener for buttons
+    private KeyListener keyListener; // Key listener for game controls
 
-    public GamePanel(MarioFrame frame){
+    public GamePanel(MarioFrame frame){ // Constructor
         createGameDisplay(frame);
         setGameDisplay();
     }
 
-    private void createGameDisplay(MarioFrame frame){
+    private void createGameDisplay(MarioFrame frame){ // Initialize panel components
         buttonPanel = new JPanel(new GridBagLayout());
         drawPanel = new MarioWorld();
 
@@ -55,7 +55,7 @@ public class GamePanel extends JPanel {
         this.setFocusable(true);
     }
 
-    private void setGameDisplay(){
+    private void setGameDisplay(){ // Set buttons positions and add components to main panel
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(20, 5, 20, 5);
         gbc.gridx = 0;
@@ -72,7 +72,7 @@ public class GamePanel extends JPanel {
         this.addKeyListener(keyListener);
     }
 
-    public MarioWorld getDrawPanel() {
+    public MarioWorld getDrawPanel() { // Getter
         return drawPanel;
     }
 }

@@ -10,18 +10,22 @@ import java.awt.event.ActionListener;
 /**
  * Created by andres on 21/08/17.
  */
+
+/**
+ * Menu click listener class
+ */
 public class ClickController implements ActionListener {
 
-    private MarioFrame frame;
-    private GameMenu menu;
+    private MarioFrame frame; // Executed actions receivers
+    private GameMenu menu; //
 
-    public ClickController(MarioFrame frame, GameMenu menu){
+    public ClickController(MarioFrame frame, GameMenu menu){ // Constructor
         this.frame = frame;
         this.menu = menu;
     }
 
     @Override
-    public void actionPerformed(ActionEvent actionEvent) {
+    public void actionPerformed(ActionEvent actionEvent) { //Listening override method
         if (actionEvent.getSource() == menu.play){
             frame.gameStateController(GameState.game);
         }

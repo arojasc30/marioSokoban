@@ -11,29 +11,33 @@ import java.awt.event.ActionListener;
 /**
  * Created by andres on 21/08/17.
  */
+
+/**
+ * Panel class for game Menu
+ */
 public class GameMenu extends JPanel {
 
-    private JPanel buttonPanel;
-    private static JPanel drawPanel;
+    private JPanel buttonPanel; // Panel for buttons
+    private static JPanel drawPanel; // Panel for game Image
 
-    private static final int PANEL_WIDTH = 750;
-    private static final int PANEL_HEIGHT = 640;
+    private static final int PANEL_WIDTH = 750; // GameMenu panel dimensions
+    private static final int PANEL_HEIGHT = 640; //
 
-    public JButton play;
-    public JButton quit;
+    public JButton play; // Buttons
+    public JButton quit; //
 
-    private static final int BUTTON_WIDTH = 100;
-    private static final int BUTTON_HEIGHT = 75;
+    private static final int BUTTON_WIDTH = 100; // Button dimensions
+    private static final int BUTTON_HEIGHT = 75; //
 
-    private ActionListener actionListener;
+    private ActionListener actionListener; // Click Listener for buttons
 
 
-    public GameMenu(MarioFrame frame){
+    public GameMenu(MarioFrame frame){ // Constructor
         createMenuDisplay(frame);
         setMenuDisplay();
     }
 
-    private void createMenuDisplay(MarioFrame frame){
+    private void createMenuDisplay(MarioFrame frame){ // Initialize panel components
         buttonPanel = new JPanel(new GridBagLayout());
         drawPanel = new GameMenuDraw();
 
@@ -52,7 +56,7 @@ public class GameMenu extends JPanel {
 
     }
 
-    private void setMenuDisplay(){
+    private void setMenuDisplay(){ // Set buttons positions and add components to main panel
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(20, 5, 20, 5);
         gbc.gridx = 0;
@@ -68,7 +72,4 @@ public class GameMenu extends JPanel {
         this.add(drawPanel, BorderLayout.CENTER);
     }
 
-    public static JPanel getDrawPanel() {
-        return drawPanel;
-    }
 }

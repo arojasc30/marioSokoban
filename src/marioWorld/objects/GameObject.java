@@ -9,37 +9,33 @@ import java.awt.*;
 /**
  * Created by andres on 20/08/17.
  */
+
+/**
+ * Game Objects abstract class
+ */
 public abstract class GameObject {
 
-    protected MarioWorld world;
+    protected MarioWorld world; // World instance
     protected int x;
     protected int y;
-    protected Image image;
-    protected Sprite nextSprite = null;
-    protected Sprite previousSprite = null;
-    protected boolean isSolid = false;
+    protected Image image; //Object image
+    protected Sprite nextSprite = null; // Next sprite to perform movement
+    protected Sprite previousSprite = null; // Previous sprite after move
+    protected boolean isSolid = false; // Object state
 
-    public GameObject(MarioWorld world, int x, int y) {
+    public GameObject(MarioWorld world, int x, int y) { // Constructor
         this.world = world;
         this.x = x;
         this.y = y;
     }
 
-    public GameObject(){}
+    public GameObject(){} // Empty constructor for static objects
 
-    public Sprite getNextSprite() {
-        return nextSprite;
-    }
-
-    public void setNextSprite(Sprite nextSprite) {
+    public void setNextSprite(Sprite nextSprite) { // Setter
         this.nextSprite = nextSprite;
     }
 
-    public Sprite getPreviousSprite() {
-        return previousSprite;
-    }
-
-    public void setPreviousSprite(Sprite previousSprite) {
+    public void setPreviousSprite(Sprite previousSprite) { // Setter
         this.previousSprite = previousSprite;
     }
 
@@ -47,9 +43,9 @@ public abstract class GameObject {
         return image;
     }
 
-    public abstract void move(Moves move);
+    public abstract void move(Moves move); // Move abstract method
 
-    protected void setNextSprite(Moves move){
+    protected void setNextSprite(Moves move){ // Setter
         switch (move){
             case up:
                 this.setNextSprite(world.getSprite(this.x - 1, this.y));
@@ -66,23 +62,11 @@ public abstract class GameObject {
         }
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
+    public void setX(int x) { // Setter
         this.x = x;
     }
 
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
+    public void setY(int y) { // Setter
         this.y = y;
-    }
-
-    public boolean isSolid() {
-        return isSolid;
     }
 }

@@ -1,15 +1,15 @@
 package marioWorld;
 
 import marioWorld.display.MarioFrame;
-import sun.audio.AudioData;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-import sun.audio.ContinuousAudioDataStream;
-
-import java.io.FileInputStream;
 
 /**
  * Created by andres on 18/08/17.
+ */
+
+/**
+ * Game Launcher
+ *
+ * Creates a new MarioFrame instance which initialize the game
  */
 public class Launcher {
 
