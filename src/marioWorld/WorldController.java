@@ -5,7 +5,7 @@ package marioWorld;
  */
 public class WorldController {
     
-    private int worldLevel = 1;
+    private int worldLevel = 4;
     public int mushrooms;
     private boolean lastWorld = false;
     private MarioWorld marioWorld;
@@ -124,13 +124,34 @@ public class WorldController {
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
                 };
                 break;
+            case 6:
+                mushrooms = 24;
+                world = new int[][]{
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                        {0, 1, 8, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0},
+                        {0, 1, 2, 1, 1, 1, 4, 1, 4, 1, 4, 1, 1, 2, 1, 0},
+                        {0, 1, 2, 1, 3, 2, 4, 3, 2, 3, 2, 3, 1, 2, 1, 0},
+                        {0, 1, 2, 4, 2, 3, 4, 2, 3, 2, 3, 2, 4, 2, 1, 0},
+                        {0, 1, 2, 1, 3, 2, 4, 3, 4, 3, 2, 3, 1, 2, 1, 0},
+                        {0, 1, 2, 4, 2, 3, 4, 4, 4, 4, 3, 2, 4, 2, 1, 0},
+                        {0, 1, 2, 1, 3, 2, 4, 3, 4, 3, 2, 3, 1, 2, 1, 0},
+                        {0, 1, 2, 4, 2, 3, 2, 3, 2, 4, 3, 2, 4, 2, 1, 0},
+                        {0, 1, 2, 1, 3, 2, 3, 2, 3, 4, 2, 3, 1, 2, 1, 0},
+                        {0, 1, 2, 1, 1, 4, 1, 4, 1, 4, 1, 1, 1, 2, 1, 0},
+                        {0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 0},
+                        {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+                };
+                break;
         }
         return world;
     }
 
     public void nextWorld(){
         worldLevel++;
-        if (worldLevel > 3){
+        if (worldLevel > 6){
             lastWorld = true;
             worldLevel = 1;
         }
