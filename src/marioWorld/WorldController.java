@@ -5,7 +5,7 @@ package marioWorld;
  */
 public class WorldController {
     
-    private int worldLevel = 4;
+    private int worldLevel = 1;
     public int mushrooms;
     private boolean lastWorld = false;
     private MarioWorld marioWorld;
