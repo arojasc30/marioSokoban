@@ -20,7 +20,10 @@ public class Turtle extends GameObject {
         this.setNextSprite(move);
         if (this.nextSprite.hasObject){
             if (!(this.nextSprite.getObject().isSolid)){
-                this.nextSprite.setObject(this);
+                if (this.nextSprite.getObject() instanceof Goomba)
+                    this.nextSprite.setObject(new Mushroom());
+                else
+                    this.nextSprite.setObject(this);
                 this.setPreviousSprite(currentSprite);
                 currentSprite.clearObject();
             }

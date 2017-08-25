@@ -5,7 +5,7 @@ package marioWorld;
  */
 public class WorldController {
     
-    private int worldLevel = 2;
+    private int worldLevel = 1;
     private boolean lastWorld = false;
 
     private int[][] world;
