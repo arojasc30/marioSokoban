@@ -44,7 +44,7 @@ public class GamePanel extends JPanel {
         menu.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
 
         actionListener = new WorldClickController(frame, this);
-        keyListener = new KeyController(drawPanel);
+        keyListener = new KeyController(drawPanel, frame);
 
         this.setLayout(new BorderLayout());
         this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));

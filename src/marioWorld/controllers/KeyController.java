@@ -1,6 +1,8 @@
 package marioWorld.controllers;
 
+import marioWorld.GameState;
 import marioWorld.MarioWorld;
+import marioWorld.display.MarioFrame;
 import marioWorld.objects.Mario;
 
 import javax.swing.*;
@@ -13,9 +15,11 @@ import java.awt.event.KeyListener;
 public class KeyController implements KeyListener {
 
     private MarioWorld world;
+    private MarioFrame frame;
 
-    public KeyController(MarioWorld world){
+    public KeyController(MarioWorld world, MarioFrame frame){
         this.world = world;
+        this.frame = frame;
     }
 
     @Override
@@ -42,6 +46,9 @@ public class KeyController implements KeyListener {
         }
         if (world.mushroomsCollected == world.getWorldController().mushrooms){
             world.getWorldController().nextWorld();
+        }
+        if (world.getWorldController().isLastWorld()){
+            frame.gameStateController(GameState.menu);
         }
         world.repaint();
     }
