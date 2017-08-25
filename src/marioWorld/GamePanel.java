@@ -40,6 +40,7 @@ public class GamePanel extends JPanel {
 
         restart = new JButton("RESTART");
         restart.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
+        restart.setFocusable(false);
         menu = new JButton("MENU");
         menu.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
 

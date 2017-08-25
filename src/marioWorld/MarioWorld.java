@@ -67,7 +67,6 @@ public class MarioWorld extends JPanel {
                 }
             }
         }
-        this.grabFocus();
         this.repaint();
     }
 
@@ -102,5 +101,6 @@ public class MarioWorld extends JPanel {
 
     public void restart(){
         setWorldDisplay();
+
     }
 }

@@ -37,12 +37,14 @@ public class Mario extends GameObject {
         this.setMarioView(move);
         this.setNextSprite(move);
         if (this.nextSprite.hasObject) {
-            if (this.nextSprite.getObject() instanceof Mushroom){
+            if (this.nextSprite.getObject() instanceof Mushroom) {
                 this.nextSprite.setObject(this);
                 this.setPreviousSprite(currentSprite);
                 currentSprite.clearObject();
                 world.mushroomsCollected += 1;
                 return;
+            }else if (this.nextSprite.getObject() instanceof Goomba){
+                world.restart();
             }else {
                 this.nextSprite.getObject().move(move);
             }
@@ -53,12 +55,6 @@ public class Mario extends GameObject {
             this.setPreviousSprite(currentSprite);
             currentSprite.clearObject();
         }
-//        }else {
-//            this.nextSprite.setObject(this);
-//            this.setPreviousSprite(currentSprite);
-//            currentSprite.clearObject();
-//        }
-        //world.repaint();
     }
 
 }
