@@ -48,6 +48,7 @@ public class KeyController implements KeyListener {
             world.getWorldController().nextWorld();
         }
         if (world.getWorldController().isLastWorld()){
+            world.getWorldController().setLastWorld(false);
             frame.gameStateController(GameState.menu);
         }
         world.repaint();

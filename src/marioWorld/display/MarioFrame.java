@@ -2,7 +2,6 @@ package marioWorld.display;
 
 import marioWorld.GamePanel;
 import marioWorld.GameState;
-import marioWorld.MarioWorld;
 import marioWorld.GameMenu;
 
 import javax.swing.*;
@@ -15,6 +14,7 @@ public class MarioFrame extends JFrame {
 
     private JPanel gamePanel;
     private JPanel gameMenu;
+
 
     private static final int FRAME_WIDTH = 750;
     private static final int FRAME_HEIGHT = 640;
@@ -31,7 +31,7 @@ public class MarioFrame extends JFrame {
         gameMenu = new GameMenu(this);
         gamePanel = new GamePanel(this);
         this.setLayout(new BorderLayout());
-        this.setTitle("Super Mario World 2D");
+        this.setTitle("Super Mario World - SokobanStyle");
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);

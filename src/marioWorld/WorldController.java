@@ -5,7 +5,7 @@ package marioWorld;
  */
 public class WorldController {
     
-    private int worldLevel = 2;
+    private int worldLevel = 3;
     public int mushrooms;
     private boolean lastWorld = false;
     private MarioWorld marioWorld;
@@ -90,9 +90,14 @@ public class WorldController {
         worldLevel++;
         if (worldLevel > 3){
             lastWorld = true;
+            worldLevel = 1;
         }
         world = createWorld();
         marioWorld.setWorldDisplay();
+    }
+
+    public void setWorldLevel(int worldLevel) {
+        this.worldLevel = worldLevel;
     }
 
     public int getWorldLevel() {
@@ -101,6 +106,10 @@ public class WorldController {
 
     public boolean isLastWorld() {
         return lastWorld;
+    }
+
+    public void setLastWorld(boolean lastWorld) {
+        this.lastWorld = lastWorld;
     }
 
     public int[][] getWorld() {
