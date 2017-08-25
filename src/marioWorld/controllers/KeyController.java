@@ -40,7 +40,9 @@ public class KeyController implements KeyListener {
         if (keycode == KeyEvent.VK_RIGHT) {
             world.getMario().move(Moves.right);
         }
-
+        if (world.mushroomsCollected == world.getWorldController().mushrooms){
+            world.getWorldController().nextWorld();
+        }
         world.repaint();
     }
 

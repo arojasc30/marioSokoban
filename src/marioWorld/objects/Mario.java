@@ -37,7 +37,15 @@ public class Mario extends GameObject {
         this.setMarioView(move);
         this.setNextSprite(move);
         if (this.nextSprite.hasObject) {
-            this.nextSprite.getObject().move(move);
+            if (this.nextSprite.getObject() instanceof Mushroom){
+                this.nextSprite.setObject(this);
+                this.setPreviousSprite(currentSprite);
+                currentSprite.clearObject();
+                world.mushroomsCollected += 1;
+                return;
+            }else {
+                this.nextSprite.getObject().move(move);
+            }
         }
 
         if (!(this.nextSprite.hasObject)){

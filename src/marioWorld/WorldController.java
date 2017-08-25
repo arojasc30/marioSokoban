@@ -6,17 +6,21 @@ package marioWorld;
 public class WorldController {
     
     private int worldLevel = 1;
+    public int mushrooms;
     private boolean lastWorld = false;
+    private MarioWorld marioWorld;
 
     private int[][] world;
 
-    public WorldController(){
+    public WorldController(MarioWorld marioWorld){
+        this.marioWorld = marioWorld;
         world = createWorld();
     }
 
     private int[][] createWorld(){
         switch (worldLevel){
             case 1:
+                mushrooms = 4;
                 world = new int[][]{
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -37,6 +41,7 @@ public class WorldController {
                 };
                 break;
             case 2:
+                mushrooms = 3;
                 world = new int[][]{
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -57,6 +62,7 @@ public class WorldController {
                 };
                 break;
             case 3:
+                mushrooms = 4;
                 world = new int[][]{
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -86,6 +92,7 @@ public class WorldController {
             lastWorld = true;
         }
         world = createWorld();
+        marioWorld.setWorldDisplay();
     }
 
     public int getWorldLevel() {

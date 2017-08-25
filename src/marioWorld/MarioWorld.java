@@ -21,18 +21,21 @@ public class MarioWorld extends JPanel {
     private Mario mario;
     protected WorldController worldController;
 
+    public int mushroomsCollected;
+
     private boolean gameFinished = false;
 
     public MarioWorld(){
         sprites = new Sprite[rows][columns];
 
-        worldController = new WorldController();
+        worldController = new WorldController(this);
 
         setWorldDisplay();
         setFocusable(true);
     }
 
-    private void setWorldDisplay(){
+    protected void setWorldDisplay(){
+        mushroomsCollected = 0;
         for (int x = 0; x < rows; x++){
             for (int y =0 ; y < columns; y++){
                 sprites[x][y] = new Sprite(x, y);
@@ -64,8 +67,8 @@ public class MarioWorld extends JPanel {
                 }
             }
         }
-        this.repaint();
         this.grabFocus();
+        this.repaint();
     }
 
     @Override
